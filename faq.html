@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | EAZYMART cpt</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/images/vector-eazy-mart.png" alt="EAZYMART Logo" class="img-fluid" style="height: 45px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="groceries.html">Groceries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="popular-stores.html">Popular Stores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="organics.html">Organics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2 ms-lg-3">
+                    <a href="order.html" class="btn btn-icon-text btn-teal position-relative" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your Cart">
+                        <i class="bi bi-cart"></i> <span class="d-none d-md-inline">Cart</span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartBadge" style="display: none;">
+                            0
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-faq d-flex align-items-center justify-content-center text-center text-white">
+        <div class="container animate__animated animate__fadeInUp">
+            <h1 class="display-4 fw-bold">Frequently Asked Questions</h1>
+            <p class="lead">Find answers to common questions about our services and products.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Content Section -->
+    <section class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h2 class="text-center mb-4 maroon-text animate__animated animate__fadeInDown">General Questions</h2>
+                <div class="accordion" id="generalFaqAccordion">
+                    <div class="accordion-item animate__animated animate__fadeInUp">
+                        <h2 class="accordion-header" id="faqHeadingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="false" aria-controls="faqCollapseOne">
+                                What is EAZYMART?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseOne" class="accordion-collapse collapse" aria-labelledby="faqHeadingOne" data-bs-parent="#generalFaqAccordion">
+                            <div class="accordion-body">
+                                EAZYMART is a local grocery and delivery service in Chilakaluripet, Guntur. We partner with popular local stores and restaurants to offer you a wide range of products, delivered directly to your doorstep.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item animate__animated animate__fadeInUp animate__delay-1s">
+                        <h2 class="accordion-header" id="faqHeadingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                                Where are you located?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#generalFaqAccordion">
+                            <div class="accordion-body">
+                                Our main hub is located near Kalamandir Theatre in Chilakaluripet. As an online delivery service, our primary focus is on bringing products to you efficiently.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item animate__animated animate__fadeInUp animate__delay-2s">
+                        <h2 class="accordion-header" id="faqHeadingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                                What are your operating hours?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#generalFaqAccordion">
+                            <div class="accordion-body">
+                                We are open for orders and deliveries from Monday to Sunday, from 9:00 AM to 9:00 PM.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-center mt-5 mb-4 teal-primary animate__animated animate__fadeInDown">Ordering & Delivery</h2>
+                <div class="accordion" id="orderingFaqAccordion">
+                    <div class="accordion-item animate__animated animate__fadeInUp">
+                        <h2 class="accordion-header" id="faqHeadingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
+                                How can I place an order?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour" data-bs-parent="#orderingFaqAccordion">
+                            <div class="accordion-body">
+                                You can place an order directly through our website by adding items to your cart from the <a href="groceries.html">Groceries</a> or <a href="organics.html">Organics</a> pages, then proceeding to the <a href="order.html">Order Now</a> page. You can also place special orders from our local partners via the <a href="popular-stores.html">Popular Stores</a> page.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item animate__animated animate__fadeInUp animate__delay-1s">
+                        <h2 class="accordion-header" id="faqHeadingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive">
+                                What are your delivery areas?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseFive" class="accordion-collapse collapse" aria-labelledby="faqHeadingFive" data-bs-parent="#orderingFaqAccordion">
+                            <div class="accordion-body">
+                                We offer delivery within a 10km radius of our hub in Chilakaluripet. If your location is outside this range, you may be prompted to select our "Pick Up" option instead.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item animate__animated animate__fadeInUp animate__delay-2s">
+                        <h2 class="accordion-header" id="faqHeadingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseSix" aria-expanded="false" aria-controls="faqCollapseSix">
+                                Can I pick up my order?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseSix" class="accordion-collapse collapse" aria-labelledby="faqHeadingSix" data-bs-parent="#orderingFaqAccordion">
+                            <div class="accordion-body">
+                                Yes, you can select "Pick Up" as your order type on the <a href="order.html">Order Now</a> page and collect your order directly from our hub during operating hours.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item animate__animated animate__fadeInUp animate__delay-3s">
+                        <h2 class="accordion-header" id="faqHeadingSeven">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseSeven" aria-expanded="false" aria-controls="faqCollapseSeven">
+                                How do I track my order?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseSeven" class="accordion-collapse collapse" aria-labelledby="faqHeadingSeven" data-bs-parent="#orderingFaqAccordion">
+                            <div class="accordion-body">
+                                After placing your order, you will receive an order ID. You can track your order status on our <a href="tracking.html">Track Order</a> page using this ID.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-center mt-5 mb-4 maroon-text animate__animated animate__fadeInDown">Products & Services</h2>
+                <div class="accordion" id="productFaqAccordion">
+                    <div class="accordion-item animate__animated animate__fadeInUp">
+                        <h2 class="accordion-header" id="faqHeadingEight">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseEight" aria-expanded="false" aria-controls="faqCollapseEight">
+                                What is your policy on freshness?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseEight" class="accordion-collapse collapse" aria-labelledby="faqHeadingEight" data-bs-parent="#productFaqAccordion">
+                            <div class="accordion-body">
+                                We are committed to delivering the freshest products. Our team hand-picks items directly from our partner stores after you place your order to ensure maximum quality and freshness.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item animate__animated animate__fadeInUp animate__delay-1s">
+                        <h2 class="accordion-header" id="faqHeadingNine">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseNine" aria-expanded="false" aria-controls="faqCollapseNine">
+                                Can I request items not on your list?
+                            </button>
+                        </h2>
+                        <div id="faqCollapseNine" class="accordion-collapse collapse" aria-labelledby="faqHeadingNine" data-bs-parent="#productFaqAccordion">
+                            <div class="accordion-body">
+                                Yes! You can contact us directly with a custom order request for items from our partner stores that you do not see on our website. We'll do our best to fulfill your request.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5 animate__animated animate__fadeIn">
+                    <p class="lead">Didn't find your answer?</p>
+                    <a href="contact.html" class="btn btn-outline-primary btn-lg">
+                        <i class="bi bi-chat-dots"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section py-5 text-white text-center animate__animated animate__fadeInUp">
+        <div class="container">
+            <h2 class="display-5 fw-bold mb-3">Ready to Place Your Order?</h2>
+            <p class="lead mb-4">A seamless shopping experience awaits!</p>
+            <a href="order.html" class="btn btn-success btn-lg">
+                Proceed to Checkout <i class="bi bi-arrow-right-circle"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5><i class="bi bi-cart-check-fill"></i> EAZYMART</h5>
+                    <p>Your trusted local delivery partner in Chilakaluripet, Guntur.</p>
+                    <p class="small text-muted mt-3">powered by AQ & AR Enterprisers</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="groceries.html" class="text-white">Groceries</a></li>
+                        <li><a href="popular-stores.html" class="text-white">Popular Stores</a></li>
+                        <li><a href="organics.html" class="text-white">Organics</a></li>
+                        <li><a href="about.html" class="text-white">About Us</a></li>
+                        <li><a href="careers.html" class="text-white">Careers</a></li>
+                        <li><a href="contact.html" class="text-white">Contact</a></li>
+                        <li><a href="faq.html" class="text-white">FAQ</a></li>
+                        <li><a href="tracking.html" class="text-white">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contact</h5>
+                    <p><i class="bi bi-telephone"></i> +91 95813 69760</p>
+                    <p><i class="bi bi-whatsapp"></i> WhatsApp Orders</p>
+                    <p><i class="bi bi-envelope"></i> eazymartcpt@gmail.com</p>
+                    <p class="small text-muted mt-3">Located at Kalamandir Theatre, Chilakaluripet.</p>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p>&copy; 2025 EAZYMART. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAZYMART cpt - Your Local Grocery Store</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/images/vector-eazy-mart.png" alt="EAZYMART Logo" class="img-fluid" style="height: 45px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="groceries.html">Groceries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="popular-stores.html">Popular Stores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="organics.html">Organics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2 ms-lg-3">
+                    <a href="order.html" class="btn btn-icon-text btn-teal position-relative" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your Cart">
+                        <i class="bi bi-cart"></i> <span class="d-none d-md-inline">Cart</span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartBadge" style="display: none;">
+                            0
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center justify-content-center text-center text-white">
+        <div class="container animate__animated animate__fadeInUp">
+            <h1 class="display-4 fw-bold">Your Local Grocery Store, Delivered to Your Doorstep</h1>
+            <p class="lead">Fresh, local products and daily essentials from Chilakaluripet's top stores.</p>
+            <a href="groceries.html" class="btn btn-primary btn-lg mt-3 animate__animated animate__pulse animate__infinite">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 animate__animated animate__fadeInLeft">
+                <img src="assets/images/about-eazymart.png" class="img-fluid rounded shadow-sm" alt="About EAZYMART cpt">
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0 animate__animated animate__fadeInRight">
+                <h2 class="teal-primary">About EAZYMART</h2>
+                <p class="lead">Connecting you to the best of Chilakaluripet, right from your phone.</p>
+                <p class="text-muted">At EAZYMART, we're building a seamless bridge between local merchants and your home. We partner with the best stores in Chilakaluripet to bring you the freshest produce, pantry staples, and local specialities, all in one convenient place. Our mission is to support our local community by making daily shopping easy, fast, and reliable for everyone.</p>
+                <a href="about.html" class="btn btn-outline-primary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Offerings Section -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 maroon-primary animate__animated animate__fadeInDown">Our Wide Range of Groceries</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col animate__animated animate__fadeInUp">
+                    <div class="card h-100 text-center shadow-sm">
+                        <img src="assets/images/local-products.png" class="card-img-top" alt="Local & Regional Favorites">
+                        <div class="card-body">
+                            <h5 class="card-title teal-primary">Local & Regional Favorites</h5>
+                            <p class="card-text text-muted">Discover the unique flavors of Chilakaluripet with our curated selection of local delicacies and specialties.</p>
+                            <a href="groceries.html" class="btn btn-outline-maroon">Browse Groceries</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="card h-100 text-center shadow-sm">
+                        <img src="assets/images/fresh-produce-hero.png" class="card-img-top" alt="Fresh Fruits & Vegetables">
+                        <div class="card-body">
+                            <h5 class="card-title maroon-primary">Fresh Fruits & Vegetables</h5>
+                            <p class="card-text text-muted">Daily essentials and seasonal produce, hand-picked for freshness and quality.</p>
+                            <a href="groceries.html" class="btn btn-outline-primary">Shop Produce</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="card h-100 text-center shadow-sm">
+                        <img src="assets/images/organics-hero.png" class="card-img-top" alt="Pantry & Household Essentials">
+                        <div class="card-body">
+                            <h5 class="card-title teal-primary">Organic & Natural Products</h5>
+                            <p class="card-text text-muted">Explore our special selection of natural and chemical-free products for a healthier lifestyle.</p>
+                            <a href="organics.html" class="btn btn-outline-maroon">View Organics</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 order-md-2 animate__animated animate__fadeInRight">
+                <img src="assets/images/why-eazymart.png" class="img-fluid rounded shadow-sm" alt="Why Choose Us">
+            </div>
+            <div class="col-md-6 order-md-1 mt-4 mt-md-0 animate__animated animate__fadeInLeft">
+                <ul class="list-unstyled">
+                    <li class="d-flex align-items-start mb-3">
+                        <i class="bi bi-shop fs-4 teal-primary me-3"></i>
+                        <div>
+                            <h5>Sourced from Local Merchants</h5>
+                            <p class="text-muted">We partner directly with popular stores in Chilakaluripet to support our local economy.</p>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-start mb-3">
+                        <i class="bi bi-truck-flatbed fs-4 maroon-primary me-3"></i>
+                        <div>
+                            <h5>Fast & Reliable Delivery</h5>
+                            <p class="text-muted">Get your groceries delivered to your doorstep quickly and securely.</p>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-start mb-3">
+                        <i class="bi bi-bag-check fs-4 teal-primary me-3"></i>
+                        <div>
+                            <h5>Curated Product Collections</h5>
+                            <p class="text-muted">Find everything you need with our specially organized product bundles and categories.</p>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-start mb-3">
+                        <i class="bi bi-tags fs-4 maroon-primary me-3"></i>
+                        <div>
+                            <h5>Competitive Prices & Daily Deals</h5>
+                            <p class="text-muted">We work to offer you the best prices, with frequent discounts and offers to save you money.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 maroon-primary animate__animated animate__fadeInDown">What Our Customers Say</h2>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-flex justify-content-center">
+                            <div class="col-md-8 text-center">
+                                <p class="lead fst-italic text-muted">"EAZYMART has made my weekly shopping so much easier. The products are fresh, and the delivery is always on time!"</p>
+                                <p class="fw-bold mt-3">- Aravind Reddy</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center">
+                            <div class="col-md-8 text-center">
+                                <p class="lead fst-italic text-muted">"I love how they deliver local pickles and spices right to my door. It's a game-changer for someone who loves authentic flavors."</p>
+                                <p class="fw-bold mt-3">- Sandhya Rao</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center">
+                            <div class="col-md-8 text-center">
+                                <p class="lead fst-italic text-muted">"Great service and great prices. EAZYMART is now my go-to for all my grocery needs."</p>
+                                <p class="fw-bold mt-3">- Vivek Kumar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section py-5 text-white text-center animate__animated animate__fadeInUp">
+        <div class="container">
+            <h2 class="display-5 fw-bold mb-3">Ready for a Smarter Shopping Experience?</h2>
+            <p class="lead mb-4">Start filling your cart with fresh, local products today!</p>
+            <a href="groceries.html" class="btn btn-success btn-lg">
+                Shop Now <i class="bi bi-arrow-right-circle"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5><i class="bi bi-cart-check-fill"></i> EAZYMART</h5>
+                    <p>Your trusted local delivery partner in Chilakaluripet, Guntur.</p>
+                    <p class="small text-muted mt-3">powered by AQ & AR Enterprisers</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="groceries.html" class="text-white">Groceries</a></li>
+                        <li><a href="popular-stores.html" class="text-white">Popular Stores</a></li>
+                        <li><a href="organics.html" class="text-white">Organics</a></li>
+                        <li><a href="about.html" class="text-white">About Us</a></li>
+                        <li><a href="careers.html" class="text-white">Careers</a></li>
+                        <li><a href="contact.html" class="text-white">Contact</a></li>
+                        <li><a href="faq.html" class="text-white">FAQ</a></li>
+                        <li><a href="tracking.html" class="text-white">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contact</h5>
+                    <p><i class="bi bi-telephone"></i> +91 95813 69760</p>
+                    <p><i class="bi bi-whatsapp"></i> WhatsApp Orders</p>
+                    <p><i class="bi bi-envelope"></i> eazymartcpt@gmail.com</p>
+                    <p class="small text-muted mt-3">Located at Kalamandir Theatre, Chilakaluripet.</p>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p>&copy; 2025 EAZYMART. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>

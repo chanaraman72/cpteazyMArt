@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Stores | EAZYMART cpt</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom hero section specific to this page */
+        .hero-stores {
+            background: linear-gradient(rgba(0, 144, 144, 0.7), rgba(0, 144, 144, 0.7)), url('assets/images/popular-stores-hero.png') no-repeat center center;
+            background-size: cover;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        /* Styling for the store cards */
+        .store-card {
+            border: none;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .store-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .store-card img {
+            height: 220px;
+            object-fit: cover;
+        }
+        .store-card .card-body {
+            padding: 1.5rem;
+        }
+        .store-item-list {
+            padding-left: 1.5rem;
+        }
+        .store-item-list li {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+        .store-item-category {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-maroon);
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/images/vector-eazy-mart.png" alt="EAZYMART Logo" class="img-fluid" style="height: 45px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="groceries.html">Groceries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="popular-stores.html">Popular Stores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="organics.html">Organics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2 ms-lg-3">
+                    <a href="order.html" class="btn btn-icon-text btn-teal position-relative" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your Cart">
+                        <i class="bi bi-cart"></i> <span class="d-none d-md-inline">Cart</span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartBadge" style="display: none;">
+                            0
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-stores d-flex align-items-center justify-content-center text-center text-white">
+        <div class="container animate__animated animate__fadeInUp">
+            <h1 class="display-4 fw-bold">Popular Stores</h1>
+            <p class="lead">Shop from your favorite local stores and restaurants in Chilakaluripet.</p>
+        </div>
+    </section>
+
+    <!-- Popular Stores Section -->
+    <section class="container py-5">
+        <h2 class="text-center mb-4 maroon-primary animate__animated animate__fadeInDown">Our Local Partners</h2>
+        <p class="text-center text-muted mb-5 animate__animated animate__fadeIn">Browse the menus of our trusted partners and place your order directly through EAZYMART. We deliver from their kitchens and shelves to your home.</p>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Ratna Bakers & Sweets Card -->
+            <div class="col animate__animated animate__fadeInUp">
+                <div class="card h-100 shadow-sm store-card">
+                    <img src="assets/images/ratna-bakers.png" class="card-img-top" alt="Ratna Bakers">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title teal-primary">Ratna Bakers & Sweets</h5>
+                        <p class="card-text text-muted flex-grow-1">A local favorite for fresh-baked goods, pastries, and traditional sweets. Perfect for celebrations or a daily treat.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="fs-4 fw-bold maroon-primary">Bakery</span>
+                            <button class="btn btn-primary btn-sm view-store-menu" data-store-id="ratna-bakers" data-bs-toggle="modal" data-bs-target="#storeMenuModal">View Items</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eagle Restaurant Card -->
+            <div class="col animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="card h-100 shadow-sm store-card">
+                    <img src="assets/images/eagle-restaurant.png" class="card-img-top" alt="Eagle Restaurant">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title teal-primary">Eagle Restaurant</h5>
+                        <p class="card-text text-muted flex-grow-1">A well-known restaurant offering a diverse menu of South Indian, Chinese, and Tandoori dishes. Famous for its biryani and starters.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="fs-4 fw-bold maroon-primary">Restaurant</span>
+                            <button class="btn btn-primary btn-sm view-store-menu" data-store-id="eagle-restaurant" data-bs-toggle="modal" data-bs-target="#storeMenuModal">View Items</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VDS Wholesale Mart Card -->
+            <div class="col animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="card h-100 shadow-sm store-card">
+                    <img src="assets/images/vds-wholesale.png" class="card-img-top" alt="VDS Wholesale Mart">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title teal-primary">VDS Wholesale Market</h5>
+                        <p class="card-text text-muted flex-grow-1">A one-stop wholesale destination for a wide range of groceries, including fresh produce, bulk spices, and household goods at great prices.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="fs-4 fw-bold maroon-primary">Groceries</span>
+                            <button class="btn btn-primary btn-sm view-store-menu" data-store-id="vds-wholesale" data-bs-toggle="modal" data-bs-target="#storeMenuModal">View Items</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subhani Malpuri Corner Card -->
+            <div class="col animate__animated animate__fadeInUp>
+                <div class="card h-100 shadow-sm store-card">
+                    <img src="assets/images/subhani-malpuri.png" class="card-img-top" alt="Subhani Malpuri">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title teal-primary">Subhani Malpuri Corner</h5>
+                        <p class="card-text text-muted flex-grow-1">The home of the famous Guntur Kova Malpuri. Get this irresistible sweet and other local delights delivered fresh to your doorstep.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="fs-4 fw-bold maroon-primary">Sweets</span>
+                            <button class="btn btn-primary btn-sm view-store-menu" data-store-id="subhani-malpuri" data-bs-toggle="modal" data-bs-target="#storeMenuModal">View Items</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sri Venkateswara Hot Chips Card -->
+            <div class="col animate__animated animate__fadeInUp">
+                <div class="card h-100 shadow-sm store-card">
+                    <img src="assets/images/hot-chips.png" class="card-img-top" alt="Hot Chips">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title teal-primary">Sri Venkateswara Hot Chips</h5>
+                        <p class="card-text text-muted flex-grow-1">Craving a crunchy snack? We deliver fresh, spicy, and flavorful hot chips from this local favorite.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="fs-4 fw-bold maroon-primary">Snacks</span>
+                            <button class="btn btn-primary btn-sm view-store-menu" data-store-id="hot-chips" data-bs-toggle="modal" data-bs-target="#storeMenuModal">View Items</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Store Menu Modal -->
+    <div class="modal fade" id="storeMenuModal" tabindex="-1" aria-labelledby="storeMenuModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header aqua-bg text-white">
+                    <h5 class="modal-title" id="storeMenuModalLabel">Menu for <span id="modalStoreTitle"></span></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p id="modalStoreDescription" class="text-muted mb-4"></p>
+                    
+                    <div class="row">
+                        <!-- Menu List Column -->
+                        <div class="col-md-6 border-end">
+                            <h6 class="maroon-primary">Available Items</h6>
+                            <div id="modalStoreItems" class="mb-4">
+                                <!-- Store items will be dynamically inserted here -->
+                            </div>
+                        </div>
+                        <!-- Order Form Column -->
+                        <div class="col-md-6">
+                            <h6 class="maroon-primary">Your Order</h6>
+                            <form id="storeOrderForm">
+                                <input type="hidden" id="storeNameInput">
+                                <div class="mb-3">
+                                    <label for="orderMessageTextarea" class="form-label">Enter your list here:</label>
+                                    <textarea class="form-control" id="orderMessageTextarea" rows="10" placeholder="E.g.,&#10;1 x Chicken Dum Biryani ₹369&#10;1 x Tandoori Chicken ₹325&#10;Extra Onions"></textarea>
+                                </div>
+                                <div class="text-end mb-3">
+                                    <h5 class="mb-0">Estimated Total: <span class="teal-primary" id="orderEstimateTotal">₹0</span></h5>
+                                </div>
+                                <button type="submit" class="btn btn-success w-100">Send Order to EAZYMART</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Call to Action Section -->
+    <section class="cta-section py-5 text-white text-center animate__animated animate__fadeInUp">
+        <div class="container">
+            <h2 class="display-5 fw-bold mb-3">Ready to Place Your Order?</h2>
+            <p class="lead mb-4">A seamless shopping experience awaits!</p>
+            <a href="order.html" class="btn btn-success btn-lg">
+                Proceed to Checkout <i class="bi bi-arrow-right-circle"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5><i class="bi bi-cart-check-fill"></i> EAZYMART</h5>
+                    <p>Your trusted local delivery partner in Chilakaluripet, Guntur.</p>
+                    <p class="small text-muted mt-3">powered by AQ & AR Enterprisers</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="groceries.html" class="text-white">Groceries</a></li>
+                        <li><a href="popular-stores.html" class="text-white">Popular Stores</a></li>
+                        <li><a href="organics.html" class="text-white">Organics</a></li>
+                        <li><a href="about.html" class="text-white">About Us</a></li>
+                        <li><a href="careers.html" class="text-white">Careers</a></li>
+                        <li><a href="contact.html" class="text-white">Contact</a></li>
+                        <li><a href="faq.html" class="text-white">FAQ</a></li>
+                        <li><a href="tracking.html" class="text-white">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contact</h5>
+                    <p><i class="bi bi-telephone"></i> +91 95813 69760</p>
+                    <p><i class="bi bi-whatsapp"></i> WhatsApp Orders</p>
+                    <p><i class="bi bi-envelope"></i> eazymartcpt@gmail.com</p>
+                    <p class="small text-muted mt-3">Located at Kalamandir Theatre, Chilakaluripet.</p>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p>&copy; 2025 EAZYMART. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const storesData = {
+                "ratna-bakers": {
+                    title: "Ratna Bakers & Sweets",
+                    description: "A local favorite for fresh-baked goods, pastries, and traditional sweets. Perfect for celebrations or a daily treat.",
+                    items: [
+                        { name: "Black Forest Cake (1kg)", price: "₹650" },
+                        { name: "Puffs (Veg/Egg)", price: "₹25" },
+                        { name: "Cream Buns", price: "₹20" },
+                        { name: "Mysore Pak (250g)", price: "₹120" }
+                    ]
+                },
+                "eagle-restaurant": {
+                    title: "Eagle Restaurant",
+                    description: "A popular restaurant offering a wide range of flavorful dishes, from Chinese soups and tandoori starters to authentic biryanis.",
+                    sections: {
+                        "Soups": [
+                            { name: "Tomato Soup", price: "₹115" },
+                            { name: "Veg Corn Soup", price: "₹115" },
+                            { name: "Veg Hot and Sour Soup", price: "₹115" },
+                            { name: "Chicken Hot and Sour Soup", price: "₹115" }
+                        ],
+                        "Starters": [
+                            { name: "Chilli Egg", price: "₹174" },
+                            { name: "Egg Manchurian", price: "₹186" },
+                            { name: "Chicken 65", price: "₹340" },
+                            { name: "Chicken Tikka", price: "₹336" },
+                            { name: "Mutton Fry", price: "₹348" },
+                            { name: "Fish Fry", price: "₹313" }
+                        ],
+                        "Main Course": [
+                            { name: "Mix Vegetable Curry", price: "₹186" },
+                            { name: "Paneer Butter Masala", price: "₹325" },
+                            { name: "Andhra Chicken", price: "₹336" },
+                            { name: "Mutton Curry", price: "₹394" }
+                        ],
+                        "Biryani": [
+                            { name: "Egg Biryani", price: "₹290" },
+                            { name: "Chicken Dum Biryani", price: "₹369" },
+                            { name: "Mutton Fry Biryani", price: "₹450" },
+                            { name: "Family Pack Chicken Biryani", price: "₹885" }
+                        ],
+                        "Fried Rice & Rice": [
+                            { name: "Veg Fried Rice", price: "₹290" },
+                            { name: "Chicken Fried Rice", price: "₹349" },
+                            { name: "White Rice", price: "₹70" },
+                            { name: "Curd Rice", price: "₹125" }
+                        ]
+                    }
+                },
+                "vds-wholesale": {
+                    title: "VDS Wholesale Market",
+                    description: "A one-stop wholesale destination for a wide range of groceries, including fresh produce, bulk spices, and household goods at great prices.",
+                    items: [
+                        { name: "Sona Masoori Rice (5kg)", price: "₹345" },
+                        { name: "Sunflower Cooking Oil (1L)", price: "₹135" },
+                        { name: "Fresh Pomegranates (1kg)", price: "₹195" },
+                        { name: "Lizol Disinfectant (1L)", price: "₹195" }
+                    ]
+                },
+                "subhani-malpuri": {
+                    title: "Subhani Malpuri Corner",
+                    description: "The home of the famous Guntur Kova Malpuri. Get this irresistible sweet and other local delights delivered fresh to your doorstep.",
+                    items: [
+                        { name: "Kova Malpuri (1 piece)", price: "₹30" },
+                        { name: "Boondi Ladoo (250g)", price: "₹90" },
+                        { name: "Jalebi (250g)", price: "₹80" }
+                    ]
+                },
+                "hot-chips": {
+                    title: "Sri Venkateswara Hot Chips",
+                    description: "Craving a crunchy snack? We deliver fresh, spicy, and flavorful hot chips from this local favorite.",
+                    items: [
+                        { name: "Banana Chips (200g)", price: "₹60" },
+                        { name: "Potato Chips (200g)", price: "₹50" },
+                        { name: "Mirchi Bajji (5 pieces)", price: "₹40" }
+                    ]
+                },
+            };
+
+            const storeMenuModal = new bootstrap.Modal(document.getElementById('storeMenuModal'));
+            const orderMessageTextarea = document.getElementById('orderMessageTextarea');
+            const storeNameInput = document.getElementById('storeNameInput');
+            const orderEstimateTotal = document.getElementById('orderEstimateTotal');
+
+            function calculateTotal() {
+                const text = orderMessageTextarea.value;
+                const prices = text.match(/₹\s*(\d+(\.\d{1,2})?)/g); // Find all prices with ₹ symbol
+                let total = 0;
+                if (prices) {
+                    prices.forEach(priceStr => {
+                        const numericValue = parseFloat(priceStr.replace(/₹\s*/, ''));
+                        if (!isNaN(numericValue)) {
+                            total += numericValue;
+                        }
+                    });
+                }
+                orderEstimateTotal.textContent = `₹${total.toFixed(2)}`;
+            }
+
+            document.querySelectorAll('.view-store-menu').forEach(button => {
+                button.addEventListener('click', function() {
+                    const storeId = this.getAttribute('data-store-id');
+                    const store = storesData[storeId];
+
+                    if (store) {
+                        document.getElementById('modalStoreTitle').textContent = store.title;
+                        document.getElementById('modalStoreDescription').textContent = store.description;
+
+                        const itemsContainer = document.getElementById('modalStoreItems');
+                        itemsContainer.innerHTML = '';
+                        orderMessageTextarea.value = '';
+                        storeNameInput.value = store.title;
+                        
+                        if (store.sections) {
+                            for (const category in store.sections) {
+                                const categoryHeader = document.createElement('h6');
+                                categoryHeader.className = 'store-item-category';
+                                categoryHeader.textContent = category;
+                                itemsContainer.appendChild(categoryHeader);
+
+                                const itemsList = document.createElement('ul');
+                                itemsList.className = 'list-unstyled store-item-list';
+                                store.sections[category].forEach(item => {
+                                    const li = document.createElement('li');
+                                    li.innerHTML = `<strong>${item.name}</strong> - ${item.price}`;
+                                    itemsList.appendChild(li);
+                                });
+                                itemsContainer.appendChild(itemsList);
+                            }
+                        } else {
+                            const itemsList = document.createElement('ul');
+                            itemsList.className = 'list-unstyled store-item-list';
+                            store.items.forEach(item => {
+                                const li = document.createElement('li');
+                                li.innerHTML = `<strong>${item.name}</strong> - ${item.price}`;
+                                itemsList.appendChild(li);
+                            });
+                            itemsContainer.appendChild(itemsList);
+                        }
+                        
+                        // Attach event listener for real-time calculation when textarea is modified
+                        orderMessageTextarea.addEventListener('input', calculateTotal);
+                        calculateTotal(); // Initial calculation
+                        storeMenuModal.show();
+                    }
+                });
+            });
+
+            // Handle form submission from the modal
+            const storeOrderForm = document.getElementById('storeOrderForm');
+            storeOrderForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const storeName = document.getElementById('storeNameInput').value;
+                const messageContent = document.getElementById('orderMessageTextarea').value;
+                const subject = `Order Request from ${storeName}`;
+                
+                const url = `contact.html?subject=${encodeURIComponent(subject)}&message=${encodeURIComponent(messageContent)}`;
+                window.location.href = url;
+            });
+        });
+    </script>
+</body>
+</html>

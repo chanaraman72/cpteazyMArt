@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now | EAZYMART cpt</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* [MINOR UPDATE] Enhanced validation styles */
+        .is-invalid {
+            border-color: #dc3545 !important;
+        }
+        .quantity-control {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .cart-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        #orderDetailsModal {
+            display: none; /* Hidden by default; shown via JS */
+        }
+        #orderDetailsModal.active {
+            display: block;
+        }
+        #orderDetailsContent {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/images/vector-eazy-mart.png" alt="EAZYMART Logo" class="img-fluid" style="height: 45px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="groceries.html">Groceries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="popular-stores.html">Popular Stores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="organics.html">Organics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2 ms-lg-3">
+                    <a href="order.html" class="btn btn-icon-text btn-teal position-relative" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Your Cart">
+                        <i class="bi bi-cart"></i> <span class="d-none d-md-inline">Cart</span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartBadge" style="display: none;">
+                            0
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Order Container -->
+    <div class="container py-4">
+        <div class="row">
+            <!-- Order Form -->
+            <div class="col-lg-7 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header text-white aqua-bg">
+                        <h4 class="mb-0"><i class="bi bi-person"></i> Customer Details</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="customerForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Full Name*</label>
+                                    <input type="text" class="form-control" id="customerName" required>
+                                    <div class="invalid-feedback">Please enter a valid name (letters and spaces only)</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Phone Number*</label>
+                                    <input type="tel" class="form-control" id="customerPhone" required>
+                                    <div class="invalid-feedback">Please enter a valid 10-digit phone number</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" id="customerEmail">
+                                <div class="invalid-feedback">Please enter a valid email address</div>
+                            </div>
+
+                            <!-- Order Type Selection: Delivery vs Pickup -->
+                            <div class="mb-3">
+                                <label class="form-label">Order Type*</label>
+                                <div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="orderType" id="orderTypeDelivery" value="Delivery" checked onchange="window.toggleOrderType()">
+                                        <label class="form-check-label" for="orderTypeDelivery">Delivery</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="orderType" id="orderTypePickup" value="Pickup" onchange="window.toggleOrderType()">
+                                        <label class="form-check-label" for="orderTypePickup">Pick Up</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Delivery Fields (Initially visible) -->
+                            <div id="deliveryFields">
+                                <div class="mb-3">
+                                    <label class="form-label">Delivery Address*</label>
+                                    <div class="input-group mb-2">
+                                        <input type="text" class="form-control" id="deliveryAddress" placeholder="Enter delivery address or select from suggestions" required>
+                                        <button type="button" class="btn btn-outline-secondary" id="currentLocationBtn">
+                                            <i class="bi bi-geo-alt"></i> Current Location
+                                        </button>
+                                    </div>
+                                    <div id="deliveryMap" style="height: 200px; border-radius: 8px; overflow: hidden; margin-top: 10px;"></div>
+                                    <div class="invalid-feedback">Please enter a valid delivery address</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Detailed Address Instructions (Optional)</label>
+                                    <textarea class="form-control" rows="2" id="detailedAddress" placeholder="E.g., Flat 4B, near blue gate, opposite park"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Pickup Fields (Initially hidden) -->
+                            <div id="pickupFields" class="d-none">
+                                <div class="mb-3">
+                                    <label class="form-label">Pick Up Location</label>
+                                    <p class="form-control-plaintext fw-bold">
+                                        Kalamandir Theatre, Chilakaluripet, Guntur
+                                    </p>
+                                    <div id="pickupMap" style="height: 200px; border-radius: 8px; overflow: hidden;"></div>
+                                    <p class="text-muted small mt-2">
+                                        Please pick up your order at our central hub.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Delivery/Pickup Time</label>
+                                <select class="form-select" id="deliveryTime">
+                                    <option value="ASAP">As soon as possible</option>
+                                    <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+                                    <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+                                    <option value="12:00 PM - 1:00 PM">12:00 PM - 1:00 PM</option>
+                                    <option value="1:00 PM - 2:00 PM">1:00 PM - 2:00 PM</option>
+                                    <option value="6:00 PM - 7:00 PM">6:00 PM - 7:00 PM</option>
+                                    <option value="7:00 PM - 8:00 PM">7:00 PM - 8:00 PM</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Special Instructions</label>
+                                <textarea class="form-control" rows="2" id="specialInstructions" placeholder="Allergies, dietary restrictions, etc."></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="col-lg-5">
+                <div class="card shadow-sm sticky-lg-top" style="top: 20px;">
+                    <div class="card-header text-white maroon-bg">
+                        <h4 class="mb-0"><i class="bi bi-cart"></i> Your Order</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center py-4" id="emptyCartMessage" style="display: none;">
+                            <i class="bi bi-cart-x fs-1 text-muted"></i>
+                            <p class="text-muted">Your cart is empty</p>
+                            <a href="groceries.html" class="btn btn-outline-primary">
+                                <i class="bi bi-menu-up"></i> Browse Groceries
+                            </a>
+                        </div>
+                        <div id="orderSummary">
+                            <!-- Cart items will be dynamically added here by JS -->
+                        </div>
+
+                        <div class="border p-3 mb-3 rounded" style="background-color: #f8f9fa;">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="promoCode" placeholder="Promo Code">
+                                <button class="btn btn-teal" type="button" id="applyPromo" onclick="window.applyPromoCode()">Apply</button> <!-- [MINOR UPDATE] Calls new promo function -->
+                            </div>
+                            <small class="text-muted">e.g. EAZY10 for 10% off</small>
+                        </div>
+
+                        <div class="border-top pt-3">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">₹0</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2" id="deliveryFeeRow">
+                                <span>Delivery Fee:</span>
+                                <span id="deliveryFee">₹30</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2" id="discountRow" style="display: none;">
+                                <span>Discount:</span>
+                                <span class="text-success" id="discountAmount">-₹0</span>
+                            </div>
+                            <div class="d-flex justify-content-between fw-bold fs-5">
+                                <span>Total:</span>
+                                <span id="totalAmount">₹30</span>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-success w-100 mt-3 py-2" id="confirmOrderBtn" disabled onclick="window.processOrder()">
+                            <i class="bi bi-check-circle"></i> Confirm Order
+                        </button>
+
+                        <div id="deliveryRangeMessage" class="alert alert-warning mt-3" style="display: none;">
+                            <p class="mb-0">
+                                <i class="bi bi-exclamation-triangle-fill"></i> Sorry, your location is a bit far from our delivery range. Please try changing your order to a **Pick Up**.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Details Modal [MINOR UPDATE] Added Loyverse ID element -->
+    <div class="order-details-modal" id="orderDetailsModal">
+        <div class="order-details-content animate__animated animate__fadeInUp">
+            <div class="text-center mb-4">
+                <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+                <h3 class="mt-3 aqua-text">Order Confirmed!</h3>
+                <p>Your order <strong id="displayOrderId" class="maroon-text"></strong> has been received.</p>
+                <div class="alert alert-success mt-3">
+                    We will contact you shortly via **WhatsApp** and **Email** with your order updates. Stay tuned!
+                </div>
+            </div>
+            
+            <div id="orderDetailsContent">
+                <!-- Dynamically filled by JavaScript with Loyverse ID, items, etc. -->
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="index.html" class="btn btn-primary me-2">
+                    <i class="bi bi-house"></i> Back to Home
+                </a>
+                <a href="#" id="trackOrderLink" class="btn btn-info me-2">
+                    <i class="bi bi-geo-alt"></i> Track Order
+                </a>
+                <button class="btn btn-outline-secondary" id="printOrderBtn" onclick="window.printOrder()">
+                    <i class="bi bi-printer"></i> Print Receipt
+                </button>
+                <a href="#" id="whatsappOrderLink" class="btn btn-success mt-2">
+                    <i class="bi bi-whatsapp"></i> Send on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/script.js"></script>
+
+    <!-- Google Maps API [MINOR UPDATE] Replace with your actual API key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUt1ZHU99sd8ZmgxuRIfwW1MOqVBQsvA0&libraries=places,geometry&callback=initMapCallback" async defer></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('from') === 'menu') {
+                const pendingItem = localStorage.getItem('pendingCartItem');
+                if (pendingItem) {
+                    if (typeof window.addToCart === 'function') {
+                        window.addToCart(pendingItem);
+                        localStorage.removeItem('pendingItem');
+                        history.replaceState(null, '', window.location.pathname);
+                    }
+                }
+            }
+            
+            // [MINOR UPDATE] Initialize cart display and totals on load
+            if (typeof window.updateCartDisplay === 'function') window.updateCartDisplay();
+            if (typeof window.updateTotals === 'function') window.updateTotals();
+            
+            // [MINOR UPDATE] Basic form validation setup
+            const form = document.getElementById('customerForm');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault(); // Prevent default; handled by processOrder
+                });
+                // Phone validation example (10 digits)
+                const phoneInput = document.getElementById('customerPhone');
+                if (phoneInput) {
+                    phoneInput.addEventListener('input', function() {
+                        const value = this.value.replace(/\D/g, '');
+                        if (value.length > 10) this.value = value.slice(0, 10);
+                        this.classList.toggle('is-invalid', value.length < 10 && value.length > 0);
+                    });
+                }
+                // Email validation
+                const emailInput = document.getElementById('customerEmail');
+                if (emailInput) {
+                    emailInput.addEventListener('blur', function() {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        this.classList.toggle('is-invalid', this.value && !emailRegex.test(this.value));
+                    });
+                }
+            }
+
+            // [MINOR UPDATE] Setup order type toggle on load
+            if (typeof window.toggleOrderType === 'function') window.toggleOrderType();
+
+            if (window.isGoogleMapsApiReady) {
+                if (typeof window.toggleOrderType === 'function') window.toggleOrderType();
+            } else {
+                window.addEventListener('googlemapsapiready', function() {
+                    if (typeof window.toggleOrderType === 'function') window.toggleOrderType();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
